@@ -150,25 +150,23 @@ public enum ModelNames {
 
     /// Parakeet EOU streaming model names
     public enum ParakeetEOU {
-        public static let preprocessor = "parakeet_eou_preprocessor"
         public static let encoder = "streaming_encoder"
         public static let decoder = "decoder"
         public static let joint = "joint_decision"
         public static let vocab = "vocab.json"
-        public static let tokenizer = "tokenizer.model"
 
-        public static let preprocessorFile = preprocessor + ".mlmodelc"
         public static let encoderFile = encoder + ".mlmodelc"
         public static let decoderFile = decoder + ".mlmodelc"
         public static let jointFile = joint + ".mlmodelc"
 
+        /// Required files for streaming model
+        /// Note: preprocessor is no longer used (native Swift NeMoMelSpectrogram instead)
+        /// Note: tokenizer.model is not used (vocab.json is used for the Tokenizer)
         public static let requiredModels: Set<String> = [
-            preprocessorFile,
             encoderFile,
             decoderFile,
             jointFile,
             vocab,
-            tokenizer,
         ]
     }
 
